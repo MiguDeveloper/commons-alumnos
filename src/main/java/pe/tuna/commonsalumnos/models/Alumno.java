@@ -19,7 +19,7 @@ public class Alumno {
     private Date createAt;
 
     @PrePersist
-    public void prePersist(){
+    public void prePersist() {
         createAt = new Date();
     }
 
@@ -61,5 +61,18 @@ public class Alumno {
 
     public void setCreateAt(Date createAt) {
         this.createAt = createAt;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof Alumno)) {
+            return false;
+        }
+
+        Alumno al = (Alumno) obj;
+        return id != null && id.equals(al.getId());
     }
 }
